@@ -33,5 +33,14 @@ public class GymMembershipPlan extends MembershipPlan implements Freezable {
 		return getMonths() >= 3;
 	}
 
+	@Override
+	public String toString() {
+		return super.toString() +
+		", GymMembershipPlan{" +
+		"entriesPerMonth=" + entriesPerMonth +
+		", saunaAccess=" + saunaAccess +
+		'}';
+	}
+
 	
 }
