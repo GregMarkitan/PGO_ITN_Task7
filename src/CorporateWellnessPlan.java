@@ -42,5 +42,15 @@ public class CorporateWellnessPlan extends MembershipPlan implements RemoteAcces
 		", onlineDashboard=" + onlineDashboard +
 		'}';
 	}
+	
+	@Override
+	public boolean hasOnlineAccess() {
+		return onlineDashboard;
+	}
+
+	@Override
+	public boolean canFreeze() {
+		return getMonths() >= 6 && workshopsPerMonth == 0;
+	}
 
 }
