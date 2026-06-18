@@ -12,5 +12,27 @@ public class PersonalTrainingPlan extends MembershipPlan {
 	public String getPlanType() {
 		return "Personal Training";
 	}
+	@Override
+	public double calculateMonthlyNetPrice() {
+		double price = getBaseMonthlyFee();
+
+		price += sessionsPerMonth * 70;
+
+		if (trainerLevel == 2) {
+			price += 90;
+		} else if (trainerLevel == 3) {
+			price += 180;
+		}
+
+		if (dietConsultationIncluded) {
+			price += 50;
+		}
+
+		if (isAutoRenew()) {
+			price -= 15;	
+		}
+
+		return price;
+	}
 
 }
