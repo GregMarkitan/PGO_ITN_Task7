@@ -8,4 +8,39 @@ public class CorporateWellnessPlan extends MembershipPlan implements RemoteAcces
 		this.employeeCount = employeeCount;
 		this.workshopsPerMonth = workshopsPerMonth;
 		this.onlineDashboard = onlineDashboard;
-   }
+	}
+
+	@Override
+	public String getPlanType() {
+		return "Corporate Wellness";
+	}
+
+	@Override
+	public double calculateMonthlyNetPrice() {
+		double price = getBaseMonthlyFee();
+
+		price += employeeCount * 18;
+		price += workshopsPerMonth * 220;
+
+		if (employeeCount >= 20) {
+			price *= 0.88; // 12% discount
+		}
+
+		if (onlineDashboard) {
+			price += 80;
+		}
+
+		return price;
+	}
+
+	@Override
+	public String toString() {
+	return super.toString() +
+		", CorporateWellnessPlan{" +
+		"employeeCount=" + employeeCount +
+		", workshopsPerMonth=" + workshopsPerMonth +
+		", onlineDashboard=" + onlineDashboard +
+		'}';
+	}
+
+}
