@@ -45,4 +45,9 @@ public class OnlineCoachingPlan extends MembershipPlan implements RemoteAccess {
 		'}';
 	}
 
+	@Override
+	public boolean hasOnlineAccess() {
+		return true;
+	}
+
 }
