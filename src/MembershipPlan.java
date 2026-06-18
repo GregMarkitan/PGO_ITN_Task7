@@ -35,4 +35,36 @@ public abstract class MembershipPlan implements Billable {
 
 	public abstract String getPlanType();
 
+	@Override
+	public abstract double calculateMonthlyNetPrice();
+
+	@Override
+	public double calculateMonthlyGrossPrice() {
+		return calculateMonthlyNetPrice() * 1.23; // 23% VAT
+	}
+
+	public double calculateTotalNetPrice() {
+		return calculateMonthlyNetPrice() * months;
+	}
+
+	public final void printSummary() {
+		System.out.println("Plan code: " + planCode);
+		System.out.println("Client: " + clientName);
+		System.out.println("Type: " + getPlanType());
+		System.out.println("Monthly net: " + calculateMonthlyNetPrice());
+		System.out.println("Monthly gross: " + calculateMonthlyGrossPrice());
+		System.out.println("Contract net: " + calculateTotalNetPrice());
+	}
+
+	@Override
+	public String toString() {
+		return "MembershipPlan{" +
+		"planCode='" + planCode + '\'' +
+		", clientName='" + clientName + '\'' +
+		", months=" + months +
+		", baseMonthlyFee=" + baseMonthlyFee +
+		", autoRenew=" + autoRenew +
+		'}';
+	}
+
 }
