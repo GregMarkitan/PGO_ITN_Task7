@@ -8,4 +8,9 @@ public class PersonalTrainingPlan extends MembershipPlan {
 		this.sessionsPerMonth = sessionsPerMonth;
 		this.trainerLevel = trainerLevel;
 		this.dietConsultationIncluded = dietConsultationIncluded;
+	@Override
+	public String getPlanType() {
+		return "Personal Training";
+	}
+
 }
