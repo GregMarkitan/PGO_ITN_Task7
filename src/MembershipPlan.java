@@ -11,5 +11,28 @@ public abstract class MembershipPlan implements Billable {
 		this.months = months;
 		this.baseMonthlyFee = baseMonthlyFee;
 		this.autoRenew = autoRenew;
-}
+	}
 
+	public String getPlanCode() {
+		return planCode;
+	}
+
+	public String getClientName() {
+		return clientName;
+	}
+
+	public int getMonths() {
+		return months;
+   	}
+	
+	public double getBaseMonthlyFee() {
+		return baseMonthlyFee;
+	}
+
+	public boolean isAutoRenew() {
+		return autoRenew;
+	}
+
+	public abstract String getPlanType();
+
+}
